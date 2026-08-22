@@ -123,6 +123,7 @@ export type VariantDetail = {
   sizeLabel: string;
   sizeCategory: string;
   sortOrder: number;
+  notes: string | null;
 };
 
 export async function getProductWithVariants(productId: string) {
@@ -140,6 +141,7 @@ export async function getProductWithVariants(productId: string) {
       sizeLabel: sizeOptions.label,
       sizeCategory: sizeOptions.category,
       sortOrder: sizeOptions.sortOrder,
+      notes: variants.notes,
     })
     .from(variants)
     .innerJoin(sizeOptions, eq(sizeOptions.id, variants.sizeOptionId))
