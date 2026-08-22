@@ -10,7 +10,9 @@ import { SimulatePayment } from "@/components/store/simulate-payment";
 
 export const dynamic = "force-dynamic";
 
+/** Payment verification page confirming Paystack callback references or rendering dev simulator. */
 export default async function VerifyPage({
+
   searchParams,
 }: PageProps<"/checkout/verify">) {
   const sp = await searchParams;

@@ -14,7 +14,9 @@ const statusBadge: Record<string, string> = {
   cancelled: "bg-red-100 text-red-800",
 };
 
+/** Customer account dashboard displaying sign-in forms for guests or order history for authenticated users. */
 export default async function AccountPage() {
+
   const session = await getSession();
 
   if (!session?.user) {

@@ -3,7 +3,9 @@ import { InventoryTable } from "@/components/admin/inventory-table";
 
 export const dynamic = "force-dynamic";
 
+/** Admin inventory page rendering live product variant quantities and sales ledger. */
 export default async function InventoryPage() {
+
   const rows = await getInventoryRows();
   return (
     <div className="space-y-4">

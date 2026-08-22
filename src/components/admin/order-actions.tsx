@@ -7,6 +7,7 @@ import { Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { OrderStatus } from "@/db/schema";
 
+/** Action buttons for updating order fulfillment status or initiating order cancellation. */
 export function OrderActions({
   orderId,
   status,
@@ -14,6 +15,7 @@ export function OrderActions({
   orderId: string;
   status: OrderStatus;
 }) {
+
   const router = useRouter();
   const [busy, setBusy] = useState(false);
 

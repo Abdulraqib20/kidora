@@ -18,7 +18,9 @@ const navItems = [
   { href: "/admin/size-options", label: "Size / Age Groups", icon: Ruler },
 ];
 
+/** Admin layout verifying administrator privileges and rendering desktop sidebar and mobile header. */
 export default async function AdminLayout({
+
   children,
 }: {
   children: React.ReactNode;

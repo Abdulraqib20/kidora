@@ -3,7 +3,9 @@ import { SizeGroupsManager } from "@/components/admin/size-groups-manager";
 
 export const dynamic = "force-dynamic";
 
+/** Admin size and age brackets management page for viewing and editing category options. */
 export default async function SizeOptionsPage() {
+
   const options = await listSizeOptions();
   return (
     <div className="space-y-4">

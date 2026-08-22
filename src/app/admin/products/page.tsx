@@ -5,7 +5,9 @@ import { formatNaira } from "@/lib/money";
 
 export const dynamic = "force-dynamic";
 
+/** Admin products catalog page listing all products with stock summary and creation dialog. */
 export default async function AdminProductsPage() {
+
   const items = await listProducts({});
 
   return (

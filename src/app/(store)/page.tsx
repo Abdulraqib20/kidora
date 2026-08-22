@@ -9,7 +9,9 @@ export const dynamic = "force-dynamic";
 type SP = Record<string, string | string[] | undefined>;
 const one = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v);
 
+/** Storefront homepage presenting marketing banners, category tabs, filters, and product grid. */
 export default async function StorePage({ searchParams }: PageProps<"/">) {
+
   const sp = (await searchParams) as SP;
 
   // The size filter travels in the URL as its readable label (e.g.

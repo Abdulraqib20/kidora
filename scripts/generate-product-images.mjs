@@ -1,7 +1,4 @@
-// Generates consistent studio-style product photos with the Gemini image API
-// into public/products/<slug>.jpg. Resumable — skips files that already exist.
-// Requires GEMINI_API_KEY in .env (free key: https://aistudio.google.com/apikey).
-// Usage: node scripts/generate-product-images.mjs
+/** Generate studio-style product catalogue images using the Gemini image API into public/products/. */
 import "dotenv/config";
 import { execFile } from "node:child_process";
 import fs from "node:fs";
@@ -59,7 +56,9 @@ if (!apiKey) {
 const ai = new GoogleGenAI({ apiKey });
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
+/** Request AI image generation with automatic retry backoff on rate limits or errors. */
 async function generate(slug, subject) {
+
   for (let attempt = 1; attempt <= 4; attempt++) {
     try {
       const interaction = await ai.interactions.create({
@@ -67,7 +66,7 @@ async function generate(slug, subject) {
         input: `${STYLE} Subject: ${subject}.`,
         response_format: {
           type: "image",
-          mime_type: "image/png",
+          mime_type: "image/jpeg",
           aspect_ratio: "1:1",
           image_size: "1K",
         },
@@ -92,11 +91,11 @@ for (const [slug, subject] of products) {
     continue;
   }
   try {
-    const png = path.join(OUT_DIR, `.${slug}.tmp.png`);
-    fs.writeFileSync(png, await generate(slug, subject));
+    const tmp = path.join(OUT_DIR, `.${slug}.tmp.jpg`);
+    fs.writeFileSync(tmp, await generate(slug, subject));
     // Normalize to 800px JPEG via macOS sips.
-    await run("sips", ["-Z", "800", "--setProperty", "format", "jpeg", "--setProperty", "formatOptions", "85", png, "--out", dest]);
-    fs.unlinkSync(png);
+    await run("sips", ["-Z", "800", "--setProperty", "format", "jpeg", "--setProperty", "formatOptions", "85", tmp, "--out", dest]);
+    fs.unlinkSync(tmp);
     console.log(`✓ ${slug}`);
     ok++;
   } catch (e) {

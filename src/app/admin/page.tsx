@@ -17,7 +17,9 @@ export const dynamic = "force-dynamic";
 const LOW_STOCK_THRESHOLD = 5;
 const STALE_STOCK_DAYS = 60;
 
+/** Admin overview dashboard displaying aggregate business KPIs, revenue chart, and inventory warnings. */
 export default async function AdminDashboard() {
+
   const [stats, inventory] = await Promise.all([
     getDashboardStats(),
     getInventoryRows(),

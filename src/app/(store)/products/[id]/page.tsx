@@ -4,7 +4,9 @@ import { AddToCart } from "@/components/store/add-to-cart";
 
 export const dynamic = "force-dynamic";
 
+/** Product detail page showing product imagery, brand/category tags, description, and purchase options. */
 export default async function ProductPage({
+
   params,
 }: PageProps<"/products/[id]">) {
   const { id } = await params;

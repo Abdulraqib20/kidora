@@ -24,7 +24,9 @@ export const metadata: Metadata = {
     "Baby clothing, kids shoes, footwear and accessories — quality picks, fair prices.",
 };
 
+/** Root HTML shell configuring fonts, global stylesheet, CartProvider, and toaster. */
 export default function RootLayout({ children }: LayoutProps<"/">) {
+
   return (
     <html
       lang="en"

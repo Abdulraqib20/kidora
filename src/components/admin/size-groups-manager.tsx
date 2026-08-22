@@ -23,7 +23,9 @@ const categoryLabels: Record<string, string> = {
   free_size: "One size",
 };
 
+/** Size options interface providing creation, rename, reordering, and deletion controls. */
 export function SizeGroupsManager({ options }: { options: SizeOptionWithUsage[] }) {
+
   const router = useRouter();
   const [busy, setBusy] = useState(false);
   const [addOpen, setAddOpen] = useState(false);

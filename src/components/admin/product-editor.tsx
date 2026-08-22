@@ -53,11 +53,13 @@ const emptyVariant: VariantForm = {
   notes: "",
 };
 
+/** Product editor managing product metadata, variant SKUs, pricing, stock levels, and deletion. */
 export function ProductEditor({
   product,
   variants,
   sizeOptions,
 }: {
+
   product: Product;
   variants: VariantDetail[];
   sizeOptions: SizeOptionWithUsage[];

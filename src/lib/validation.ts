@@ -1,4 +1,6 @@
+/** Zod validation schemas for products, variants, size options, and checkout payloads. */
 import { z } from "zod";
+
 
 export const productCreateSchema = z.object({
   name: z.string().min(1, "Name is required"),

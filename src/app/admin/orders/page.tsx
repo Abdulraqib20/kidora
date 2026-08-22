@@ -21,7 +21,9 @@ const statusBadge: Record<string, string> = {
   cancelled: "bg-red-100 text-red-800",
 };
 
+/** Admin orders management page with status tabs, customer details, and fulfillment controls. */
 export default async function AdminOrdersPage({
+
   searchParams,
 }: PageProps<"/admin/orders">) {
   const sp = await searchParams;

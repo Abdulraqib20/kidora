@@ -14,7 +14,9 @@ const statusConfig = {
   cancelled: { label: "Cancelled", className: "bg-red-100 text-red-800" },
 } as const;
 
+/** Customer order receipt view displaying fulfillment badge, line items, and delivery address. */
 export default async function OrderPage({ params }: PageProps<"/orders/[id]">) {
+
   const { id } = await params;
   const detail = await getOrderDetail(id);
   if (!detail) notFound();

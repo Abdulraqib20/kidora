@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { StoreHeader } from "@/components/store/header";
 
+/** Storefront layout wrapping customer-facing pages with navigation header and footer. */
 export default function StoreLayout({ children }: { children: React.ReactNode }) {
+
   return (
     <div className="flex min-h-screen flex-col">
       <StoreHeader />

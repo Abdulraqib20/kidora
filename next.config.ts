@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {
-  /* config options here */
-};
+/** Next.js framework configuration options for the Kidora storefront and admin app. */
+const nextConfig: NextConfig = {};
+
 
 export default nextConfig;
