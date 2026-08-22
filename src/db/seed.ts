@@ -120,6 +120,61 @@ async function main() {
       ],
     },
     {
+      name: "Baby Girl Tutu Party Dress",
+      category: "Baby Clothing",
+      brand: "Kiddie Lane",
+      description: "Layered tulle party dress with satin bodice. For birthdays and owambe.",
+      image: "/products/tutu-dress.svg",
+      serialPrefix: "KLTD-105",
+      variants: [
+        { sizeLabel: "0-6 months", color: "Pink", price: 14000, qty: 6, restockedDaysAgo: 18 },
+        { sizeLabel: "6-12 months", color: "Pink", price: 14000, qty: 5, restockedDaysAgo: 18 },
+        { sizeLabel: "12-18 months", color: "Lavender", price: 15000, qty: 3, restockedDaysAgo: 70, notes: "Limited sizes left" },
+        { sizeLabel: "18-24 months", color: "Lavender", price: 15000, qty: 4, restockedDaysAgo: 70 },
+        { sizeLabel: "24-36 months", color: "Pink", price: 15500, qty: 5, restockedDaysAgo: 42 },
+      ],
+    },
+    {
+      name: "Unisex Baby Hoodie & Pants Set",
+      category: "Baby Clothing",
+      brand: "Kiddie Lane",
+      description: "Cosy fleece hoodie with matching pants. Unisex colours for cool evenings.",
+      image: "/products/hoodie-set.svg",
+      serialPrefix: "KLHS-106",
+      variants: [
+        { sizeLabel: "0-6 months", color: "Grey", price: 11500, qty: 8, restockedDaysAgo: 25 },
+        { sizeLabel: "6-12 months", color: "Grey", price: 11500, qty: 7, restockedDaysAgo: 25 },
+        { sizeLabel: "6-12 months", color: "Mustard", price: 11500, qty: 4, restockedDaysAgo: 88 },
+        { sizeLabel: "12-18 months", color: "Grey", price: 12000, qty: 6, restockedDaysAgo: 25 },
+        { sizeLabel: "18-24 months", color: "Mustard", price: 12000, qty: 5, restockedDaysAgo: 88 },
+      ],
+    },
+    {
+      name: "Baby Sleepsuit 3-Pack",
+      category: "Baby Clothing",
+      brand: "Kiddie Lane",
+      description: "Three soft cotton sleepsuits with snap buttons. Everyday value pack.",
+      image: "/products/sleepsuit.svg",
+      serialPrefix: "KLSS-107",
+      variants: [
+        { sizeLabel: "0-6 months", color: "Mixed", price: 16000, qty: 10, restockedDaysAgo: 14 },
+        { sizeLabel: "6-12 months", color: "Mixed", price: 16000, qty: 12, restockedDaysAgo: 14 },
+        { sizeLabel: "12-18 months", color: "Mixed", price: 16500, qty: 8, restockedDaysAgo: 14 },
+      ],
+    },
+    {
+      name: "Christening Outfit (Boy)",
+      category: "Baby Clothing",
+      brand: "Kiddie Lane",
+      description: "White christening gown set with matching cap. Premium finish.",
+      image: "/products/christening.svg",
+      serialPrefix: "KLCO-108",
+      variants: [
+        { sizeLabel: "0-6 months", color: "White", price: 22000, qty: 3, restockedDaysAgo: 55, notes: "Made to order — 2 week lead time" },
+        { sizeLabel: "6-12 months", color: "White", price: 22000, qty: 2, restockedDaysAgo: 55 },
+      ],
+    },
+    {
       name: "Kids Canvas Slip-On",
       category: "Kids Shoes",
       brand: "Skipers",
@@ -146,6 +201,48 @@ async function main() {
         { sizeLabel: "30", color: "Silver", price: 18000, qty: 8, restockedDaysAgo: 15 },
         { sizeLabel: "32", color: "Black", price: 18500, qty: 10, restockedDaysAgo: 15 },
         { sizeLabel: "34", color: "Black", price: 18500, qty: 6, restockedDaysAgo: 15 },
+      ],
+    },
+    {
+      name: "Kids Sports Cleats",
+      category: "Kids Shoes",
+      brand: "Skipers",
+      description: "Firm-ground cleats for young footballers. Padded ankle collar.",
+      image: "/products/sports-cleats.svg",
+      serialPrefix: "SKCT-207",
+      variants: [
+        { sizeLabel: "28", color: "Blue", price: 17500, qty: 5, restockedDaysAgo: 30 },
+        { sizeLabel: "30", color: "Blue", price: 17500, qty: 6, restockedDaysAgo: 30 },
+        { sizeLabel: "32", color: "Black", price: 18000, qty: 4, restockedDaysAgo: 30 },
+        { sizeLabel: "34", color: "Black", price: 18000, qty: 5, restockedDaysAgo: 30 },
+      ],
+    },
+    {
+      name: "Girls Sparkle Party Flats",
+      category: "Kids Shoes",
+      brand: "GlowStep",
+      description: "Glittery flats with ankle strap. Party-ready and comfortable.",
+      image: "/products/sparkle-flats.svg",
+      serialPrefix: "GSPF-208",
+      variants: [
+        { sizeLabel: "28", color: "Silver", price: 13000, qty: 6, restockedDaysAgo: 48 },
+        { sizeLabel: "30", color: "Silver", price: 13000, qty: 5, restockedDaysAgo: 48 },
+        { sizeLabel: "30", color: "Gold", price: 13000, qty: 3, restockedDaysAgo: 95 },
+        { sizeLabel: "32", color: "Gold", price: 13000, qty: 4, restockedDaysAgo: 95 },
+      ],
+    },
+    {
+      name: "Kids Velcro Sandals",
+      category: "Kids Shoes",
+      brand: "Skipers",
+      description: "Breathable sandals with easy velcro straps. Perfect for the heat.",
+      image: "/products/kids-sandals.svg",
+      serialPrefix: "SKSD-209",
+      variants: [
+        { sizeLabel: "28", color: "Navy", price: 9500, qty: 9, restockedDaysAgo: 20 },
+        { sizeLabel: "30", color: "Navy", price: 9500, qty: 8, restockedDaysAgo: 20 },
+        { sizeLabel: "32", color: "Brown", price: 9800, qty: 6, restockedDaysAgo: 20 },
+        { sizeLabel: "34", color: "Brown", price: 9800, qty: 5, restockedDaysAgo: 20 },
       ],
     },
     {
@@ -183,6 +280,65 @@ async function main() {
       ],
     },
     {
+      name: "Canvas High-Tops (Unisex)",
+      category: "Footwear",
+      brand: "Striide",
+      description: "Classic canvas high-tops that go with everything. All-season.",
+      image: "/products/high-tops.svg",
+      serialPrefix: "STRI-303",
+      variants: [
+        { sizeLabel: "39", color: "White", price: 32000, qty: 7, restockedDaysAgo: 22 },
+        { sizeLabel: "40", color: "White", price: 32000, qty: 8, restockedDaysAgo: 22 },
+        { sizeLabel: "41", color: "Black", price: 32000, qty: 10, restockedDaysAgo: 22 },
+        { sizeLabel: "42", color: "Black", price: 32000, qty: 9, restockedDaysAgo: 22 },
+        { sizeLabel: "43", color: "Black", price: 32500, qty: 6, restockedDaysAgo: 22 },
+        { sizeLabel: "44", color: "White", price: 32500, qty: 4, restockedDaysAgo: 75 },
+      ],
+    },
+    {
+      name: "Suede Chelsea Boots",
+      category: "Footwear",
+      brand: "Raven",
+      description: "Slip-on suede chelsea boots with elastic gore. Sharp with everything.",
+      image: "/products/chelsea-boots.svg",
+      serialPrefix: "RVSB-304",
+      variants: [
+        { sizeLabel: "40", color: "Brown", price: 52000, qty: 5, restockedDaysAgo: 35 },
+        { sizeLabel: "41", color: "Brown", price: 52000, qty: 4, restockedDaysAgo: 35 },
+        { sizeLabel: "42", color: "Black", price: 52000, qty: 6, restockedDaysAgo: 35 },
+        { sizeLabel: "43", color: "Black", price: 52500, qty: 3, restockedDaysAgo: 90, notes: "Slow mover — consider discount" },
+      ],
+    },
+    {
+      name: "Women's Block Heels",
+      category: "Footwear",
+      brand: "Raven",
+      description: "Comfortable block heels for work and events. Cushioned insole.",
+      image: "/products/block-heels.svg",
+      serialPrefix: "STHE-305",
+      variants: [
+        { sizeLabel: "39", color: "Black", price: 29000, qty: 6, restockedDaysAgo: 28 },
+        { sizeLabel: "40", color: "Black", price: 29000, qty: 7, restockedDaysAgo: 28 },
+        { sizeLabel: "40", color: "Nude", price: 29500, qty: 4, restockedDaysAgo: 65 },
+        { sizeLabel: "41", color: "Nude", price: 29500, qty: 3, restockedDaysAgo: 65 },
+      ],
+    },
+    {
+      name: "Men's Leather Sandals",
+      category: "Footwear",
+      brand: "Striide",
+      description: "Hand-finished leather slides. Moulds to the foot over time.",
+      image: "/products/leather-sandals.svg",
+      serialPrefix: "STMS-306",
+      variants: [
+        { sizeLabel: "41", color: "Brown", price: 26000, qty: 8, restockedDaysAgo: 32 },
+        { sizeLabel: "42", color: "Brown", price: 26000, qty: 9, restockedDaysAgo: 32 },
+        { sizeLabel: "43", color: "Black", price: 26000, qty: 7, restockedDaysAgo: 32 },
+        { sizeLabel: "44", color: "Black", price: 26000, qty: 5, restockedDaysAgo: 32 },
+        { sizeLabel: "45", color: "Brown", price: 26500, qty: 3, restockedDaysAgo: 100 },
+      ],
+    },
+    {
       name: "Ankara Print Headwrap",
       category: "Accessories",
       brand: "Aunty's Picks",
@@ -209,9 +365,114 @@ async function main() {
         { sizeLabel: "One Size", color: "Butter", price: 6500, qty: 9, restockedDaysAgo: 22 },
       ],
     },
+    {
+      name: "Kids Anime Backpack",
+      category: "Accessories",
+      brand: "Aunty's Picks",
+      description: "Padded-back school backpack, 18L, water-resistant front pocket.",
+      image: "/products/kids-backpack.svg",
+      serialPrefix: "APKB-403",
+      variants: [
+        { sizeLabel: "One Size", color: "Blue", price: 12000, qty: 15, restockedDaysAgo: 12 },
+        { sizeLabel: "One Size", color: "Red", price: 12000, qty: 12, restockedDaysAgo: 12 },
+        { sizeLabel: "One Size", color: "Multi", price: 12500, qty: 8, restockedDaysAgo: 12 },
+      ],
+    },
+    {
+      name: "School Lunch Box (2-Tier)",
+      category: "Accessories",
+      brand: "Aunty's Picks",
+      description: "Leak-proof two-tier lunch box with carry strap. BPA-free.",
+      image: "/products/lunch-box.svg",
+      serialPrefix: "APLB-404",
+      variants: [
+        { sizeLabel: "One Size", color: "Mint", price: 8500, qty: 14, restockedDaysAgo: 16 },
+        { sizeLabel: "One Size", color: "Pink", price: 8500, qty: 11, restockedDaysAgo: 16 },
+      ],
+    },
+    {
+      name: "Baby Pacifier Clip Set",
+      category: "Accessories",
+      brand: "Aunty's Picks",
+      description: "Food-grade silicone pacifier clips, set of 2. Rust-free snaps.",
+      image: "/products/pacifier-clip.svg",
+      serialPrefix: "APPC-405",
+      variants: [
+        { sizeLabel: "One Size", color: "Pastel", price: 4500, qty: 20, restockedDaysAgo: 8 },
+      ],
+    },
+    {
+      name: "Kids Sunglasses (UV400)",
+      category: "Accessories",
+      brand: "Aunty's Picks",
+      description: "Shatter-proof UV400 sunglasses with adjustable strap.",
+      image: "/products/kids-sunglasses.svg",
+      serialPrefix: "APSG-406",
+      variants: [
+        { sizeLabel: "One Size", color: "Black", price: 6000, qty: 10, restockedDaysAgo: 26 },
+        { sizeLabel: "One Size", color: "Pink", price: 6000, qty: 8, restockedDaysAgo: 26 },
+      ],
+    },
+    {
+      name: "Hair Bow Set (6 pcs)",
+      category: "Accessories",
+      brand: "Aunty's Picks",
+      description: "Six assorted satin bows on strong clips. Gift-boxed.",
+      image: "/products/hair-bows.svg",
+      serialPrefix: "APHB-407",
+      variants: [
+        { sizeLabel: "One Size", color: "Assorted", price: 5000, qty: 18, restockedDaysAgo: 10 },
+      ],
+    },
+    {
+      name: "Wooden Stacking Blocks",
+      category: "Toys",
+      brand: "PlayWood",
+      description: "24-piece wooden block set with non-toxic paint. Builds motor skills.",
+      image: "/products/stacking-blocks.svg",
+      serialPrefix: "TYWB-501",
+      variants: [
+        { sizeLabel: "One Size", color: "Natural", price: 10500, qty: 9, restockedDaysAgo: 24 },
+      ],
+    },
+    {
+      name: "Plush Teddy Bear (60cm)",
+      category: "Toys",
+      brand: "PlayWood",
+      description: "Super-soft 60cm teddy bear, safe from birth. Machine washable.",
+      image: "/products/teddy-bear.svg",
+      serialPrefix: "TYTB-502",
+      variants: [
+        { sizeLabel: "One Size", color: "Cream", price: 13500, qty: 12, restockedDaysAgo: 19 },
+        { sizeLabel: "One Size", color: "Brown", price: 13500, qty: 10, restockedDaysAgo: 19 },
+      ],
+    },
+    {
+      name: "Kids 3-Wheel Scooter",
+      category: "Toys",
+      brand: "PlayWood",
+      description: "Lean-to-steer scooter with light-up wheels and adjustable bar.",
+      image: "/products/scooter.svg",
+      serialPrefix: "TYSR-503",
+      variants: [
+        { sizeLabel: "One Size", color: "Blue", price: 45000, qty: 5, restockedDaysAgo: 36 },
+        { sizeLabel: "One Size", color: "Pink", price: 45000, qty: 4, restockedDaysAgo: 36 },
+      ],
+    },
+    {
+      name: "ABC Learning Flashcards",
+      category: "Toys",
+      brand: "PlayWood",
+      description: "52 illustrated alphabet cards for early reading. Wipe-clean finish.",
+      image: "/products/flashcards.svg",
+      serialPrefix: "TYFC-504",
+      variants: [
+        { sizeLabel: "One Size", color: "Mixed", price: 6500, qty: 16, restockedDaysAgo: 15 },
+      ],
+    },
   ];
 
-  const variantIds: { id: string; price: number }[] = [];
+  const variantBySerial = new Map<string, { id: string; price: number }>();
 
   for (const p of products) {
     const [product] = await db
@@ -240,7 +501,7 @@ async function main() {
         })),
       )
       .returning();
-    rows.forEach((r) => variantIds.push({ id: r.id, price: Number(r.price) }));
+    rows.forEach((r) => variantBySerial.set(r.serialNo, { id: r.id, price: Number(r.price) }));
   }
 
   /* ── Historical orders (past sales for dashboard + ledger columns) ── */
@@ -259,21 +520,24 @@ async function main() {
     customer: number;
     daysAgo: number;
     status: "paid" | "shipped" | "pending";
-    items: { idx: number; qty: number }[];
+    items: { serial: string; qty: number }[];
   }[] = [
-    { customer: 0, daysAgo: 52, status: "shipped", items: [{ idx: 0, qty: 2 }, { idx: 5, qty: 1 }] },
-    { customer: 1, daysAgo: 45, status: "shipped", items: [{ idx: 20, qty: 1 }] },
-    { customer: 2, daysAgo: 38, status: "shipped", items: [{ idx: 24, qty: 1 }, { idx: 26, qty: 1 }] },
-    { customer: 3, daysAgo: 30, status: "shipped", items: [{ idx: 9, qty: 2 }, { idx: 11, qty: 1 }] },
-    { customer: 0, daysAgo: 24, status: "paid", items: [{ idx: 38, qty: 1 }] },
-    { customer: 1, daysAgo: 16, status: "paid", items: [{ idx: 17, qty: 1 }, { idx: 39, qty: 2 }] },
-    { customer: 2, daysAgo: 9, status: "paid", items: [{ idx: 30, qty: 1 }, { idx: 41, qty: 1 }] },
-    { customer: 3, daysAgo: 2, status: "pending", items: [{ idx: 3, qty: 1 }] },
+    { customer: 0, daysAgo: 52, status: "shipped", items: [{ serial: "KLAG-101-0-6-1", qty: 2 }, { serial: "STAR-301-39-1", qty: 1 }] },
+    { customer: 1, daysAgo: 45, status: "shipped", items: [{ serial: "STAR-301-41-3", qty: 1 }] },
+    { customer: 2, daysAgo: 38, status: "shipped", items: [{ serial: "SKCS-205-30-2", qty: 1 }, { serial: "SKCS-205-32-4", qty: 1 }] },
+    { customer: 3, daysAgo: 30, status: "shipped", items: [{ serial: "KLBC-102-0-6-1", qty: 2 }, { serial: "KLBC-102-6-12-2", qty: 1 }] },
+    { customer: 0, daysAgo: 24, status: "paid", items: [{ serial: "APAH-401-OneSize-1", qty: 1 }] },
+    { customer: 1, daysAgo: 16, status: "paid", items: [{ serial: "KLTD-105-6-12-2", qty: 1 }, { serial: "APAH-401-OneSize-1", qty: 2 }] },
+    { customer: 2, daysAgo: 12, status: "paid", items: [{ serial: "KLTD-105-6-12-2", qty: 1 }, { serial: "TYTB-502-OneSize-1", qty: 1 }] },
+    { customer: 3, daysAgo: 9, status: "paid", items: [{ serial: "STAR-301-43-6", qty: 1 }, { serial: "APAH-401-OneSize-1", qty: 1 }] },
+    { customer: 1, daysAgo: 7, status: "paid", items: [{ serial: "STRI-303-42-4", qty: 1 }, { serial: "APKB-403-OneSize-1", qty: 2 }] },
+    { customer: 2, daysAgo: 5, status: "paid", items: [{ serial: "GSPF-208-30-2", qty: 1 }, { serial: "TYFC-504-OneSize-1", qty: 2 }] },
+    { customer: 0, daysAgo: 2, status: "pending", items: [{ serial: "KLBC-102-18-24-4", qty: 1 }] },
   ];
 
   for (const [n, o] of orderSeeds.entries()) {
     const items = o.items.map((i) => ({
-      variant: variantIds[i.idx],
+      variant: variantBySerial.get(i.serial)!,
       qty: i.qty,
     }));
     const total = items.reduce((sum, i) => sum + i.variant.price * i.qty, 0);
@@ -307,7 +571,9 @@ async function main() {
   });
   await db.update(schema.user).set({ role: "admin" }).where(eq(schema.user.id, user.id));
 
-  console.log(`✔ Seed complete. Admin: ${adminEmail} / ${adminPassword} (change ADMIN_PASSWORD in .env before going live)`);
+  console.log(
+    `✔ Seed complete: ${products.length} products, ${variantBySerial.size} variants, ${orderSeeds.length} orders. Admin: ${adminEmail}`,
+  );
   await pool.end();
 }
 
