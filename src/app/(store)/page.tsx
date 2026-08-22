@@ -50,33 +50,44 @@ export default async function StorePage({ searchParams }: PageProps<"/">) {
   return (
     <div className="space-y-8">
       {!filtered && (
-        <section className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary via-primary/90 to-primary/70 text-primary-foreground">
-          <div className="pointer-events-none absolute -top-24 -right-24 size-72 rounded-full bg-white/10" />
-          <div className="pointer-events-none absolute -bottom-32 -left-16 size-72 rounded-full bg-white/5" />
-          <div className="relative p-8 md:p-12">
-            <p className="text-xs font-semibold tracking-widest uppercase opacity-80">
-              Kidora store
-            </p>
-            <h1 className="max-w-2xl pt-2 text-3xl leading-tight font-bold md:text-4xl">
-              Everything your little ones need
+        <section className="relative overflow-hidden rounded-2xl border border-border/80 bg-card p-8 shadow-xs md:p-12">
+          <div className="relative max-w-3xl space-y-4">
+            <div className="inline-flex items-center gap-2 rounded-full border border-border bg-muted/60 px-3 py-1 text-xs font-medium text-muted-foreground">
+              <span className="size-1.5 rounded-full bg-emerald-500" />
+              Curated Children&rsquo;s Collection
+            </div>
+            <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl">
+              Everything your little ones need.
             </h1>
-            <p className="max-w-xl pt-2 opacity-90">
-              Baby clothing, kids&rsquo; shoes, footwear and accessories — quality
+            <p className="max-w-xl text-base leading-relaxed text-muted-foreground">
+              Baby clothing, kids&rsquo; shoes, footwear and accessories. Quality
               picks at fair prices, with new arrivals every week.
             </p>
-            <div className="mt-6 flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-3 pt-2">
               <Link
                 href="/?category=Baby+Clothing#catalog"
-                className="rounded-lg bg-background px-5 py-2.5 text-sm font-semibold text-foreground hover:bg-background/90"
+                className="rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-xs transition-colors hover:bg-primary/90"
               >
                 Shop baby clothing
               </Link>
               <Link
                 href="#catalog"
-                className="rounded-lg border border-white/40 px-5 py-2.5 text-sm font-semibold hover:bg-white/10"
+                className="rounded-lg border border-border bg-background px-5 py-2.5 text-sm font-semibold text-foreground shadow-xs transition-colors hover:bg-muted"
               >
                 Browse everything
               </Link>
+            </div>
+          </div>
+
+          <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-border/60 pt-6 text-xs text-muted-foreground">
+            <div className="flex items-center gap-2">
+              <span className="font-semibold text-foreground">✓</span> Premium quality materials
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="font-semibold text-foreground">✓</span> Verified sizes &amp; fit
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="font-semibold text-foreground">✓</span> Fast nationwide delivery
             </div>
           </div>
         </section>

@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     template: "%s · Kidora",
   },
   description:
-    "Baby clothing, kids shoes, footwear and accessories — quality picks, fair prices.",
+    "Baby clothing, kids shoes, footwear and accessories. Quality picks, fair prices.",
 };
 
 /** Root HTML shell configuring fonts, global stylesheet, CartProvider, and toaster. */
