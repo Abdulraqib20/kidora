@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import { getSession } from "@/lib/session";
 import { SignOutButton } from "@/components/store/signout-button";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 const navItems = [
   { href: "/admin", label: "Dashboard", icon: LayoutDashboard },
@@ -55,18 +56,23 @@ export default async function AdminLayout({
           <Link href="/" className="block px-1 py-1 hover:underline">
             ← Back to store
           </Link>
+          <div className="flex items-center gap-2 px-1 py-1">
+            <span className="text-xs text-muted-foreground">Theme</span>
+            <ThemeToggle />
+          </div>
         </div>
       </aside>
 
       <div className="flex min-w-0 flex-1 flex-col">
         <header className="flex items-center gap-2 border-b px-4 py-3 md:hidden">
           <p className="font-bold">Admin</p>
-          <nav className="ml-auto flex gap-1 text-xs">
+          <nav className="ml-auto flex items-center gap-1 text-xs">
             {navItems.map((item) => (
               <Link key={item.href} href={item.href} className="rounded-lg border px-2 py-1">
                 {item.label.split(" ")[0]}
               </Link>
             ))}
+            <ThemeToggle />
           </nav>
         </header>
         <main className="flex-1 p-4 md:p-6">

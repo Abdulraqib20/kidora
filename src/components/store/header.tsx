@@ -5,6 +5,7 @@ import { ShoppingBag, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/lib/cart";
 import { SearchCommand } from "@/components/store/search-command";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 /** Storefront sticky header with brand identity, search bar, account link, and live cart counter. */
 export function StoreHeader() {
@@ -23,6 +24,7 @@ export function StoreHeader() {
         </div>
 
         <nav className="ml-auto flex items-center gap-1">
+          <ThemeToggle />
           <Link href="/account">
             <Button variant="ghost" size="icon" aria-label="Account">
               <User />
