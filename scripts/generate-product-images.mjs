@@ -45,15 +45,12 @@ const products = [
   ["flashcards", "a set of illustrated alphabet learning flash cards fanned out"],
 ];
 
-const apiKey = process.env.GEMINI_API_KEY;
-if (!apiKey) {
-  console.error(
-    "GEMINI_API_KEY is not set. Add it to .env (free key: https://aistudio.google.com/apikey) and re-run.",
-  );
-  process.exit(1);
-}
 
-const ai = new GoogleGenAI({ apiKey });
+const ai = new GoogleGenAI({
+  vertexai: true,
+  project: process.env.GOOGLE_CLOUD_PROJECT || "bujeti-ai",
+  location: process.env.GOOGLE_CLOUD_LOCATION || "global",
+});
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 /** Request AI image generation with automatic retry backoff on rate limits or errors. */
@@ -61,19 +58,19 @@ async function generate(slug, subject) {
 
   for (let attempt = 1; attempt <= 4; attempt++) {
     try {
-      const interaction = await ai.interactions.create({
+      const response = await ai.models.generateContent({
         model: "gemini-3.1-flash-image",
-        input: `${STYLE} Subject: ${subject}.`,
-        response_format: {
-          type: "image",
-          mime_type: "image/jpeg",
-          aspect_ratio: "1:1",
-          image_size: "1K",
+        contents: `${STYLE} Subject: ${subject}.`,
+        config: {
+          responseModalities: ["IMAGE"],
+          imageConfig: { aspectRatio: "1:1" },
         },
       });
-      const img = interaction.output_image;
-      if (!img) throw new Error("no image in response");
-      return Buffer.from(img.data, "base64");
+      const parts = response.candidates?.[0]?.content?.parts ?? [];
+      const imgPart = parts.find((p) => p.inlineData || p.inline_data);
+      if (!imgPart) throw new Error("no image part in response");
+      const inline = imgPart.inlineData ?? imgPart.inline_data;
+      return Buffer.from(inline.data, "base64");
     } catch (e) {
       const retryable = /429|5\d\d|rate|overload/i.test(e.message ?? "");
       if (!retryable || attempt === 4) throw e;

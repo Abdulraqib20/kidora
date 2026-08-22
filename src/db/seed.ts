@@ -70,7 +70,7 @@ async function main() {
       brand: "Kiddie Lane",
       description:
         "Soft cotton floral gown with frilled sleeves. Gentle on newborn skin, easy to wash.",
-      image: "/products/floral-gown.svg",
+      image: "/products/floral-gown.jpg",
       serialPrefix: "KLAG-101",
       variants: [
         { sizeLabel: "0-6 months", color: "Pink", price: 8500, qty: 14, restockedDaysAgo: 21 },
@@ -85,7 +85,7 @@ async function main() {
       category: "Baby Clothing",
       brand: "Kiddie Lane",
       description: "Top and shorts set with cartoon print. Breathable fabric for everyday wear.",
-      image: "/products/cartoon-set.svg",
+      image: "/products/cartoon-set.jpg",
       serialPrefix: "KLBC-102",
       variants: [
         { sizeLabel: "0-6 months", color: "Blue", price: 9500, qty: 12, restockedDaysAgo: 18 },
@@ -100,7 +100,7 @@ async function main() {
       category: "Baby Clothing",
       brand: "Kiddie Lane",
       description: "Snap-button romper in 100% cotton. Unisex colours, ideal gift item.",
-      image: "/products/cotton-romper.svg",
+      image: "/products/cotton-romper.jpg",
       serialPrefix: "KLIR-103",
       variants: [
         { sizeLabel: "0-6 months", color: "Cream", price: 7000, qty: 20, restockedDaysAgo: 12 },
@@ -113,7 +113,7 @@ async function main() {
       category: "Baby Clothing",
       brand: "Kiddie Lane",
       description: "Adjustable-strap denim overalls with front pocket. Durable and cute.",
-      image: "/products/denim-overalls.svg",
+      image: "/products/denim-overalls.jpg",
       serialPrefix: "KLTO-104",
       variants: [
         { sizeLabel: "12-18 months", price: 12500, qty: 6, restockedDaysAgo: 30 },
@@ -126,7 +126,7 @@ async function main() {
       category: "Baby Clothing",
       brand: "Kiddie Lane",
       description: "Layered tulle party dress with satin bodice. For birthdays and owambe.",
-      image: "/products/tutu-dress.svg",
+      image: "/products/tutu-dress.jpg",
       serialPrefix: "KLTD-105",
       variants: [
         { sizeLabel: "0-6 months", color: "Pink", price: 14000, qty: 6, restockedDaysAgo: 18 },
@@ -141,7 +141,7 @@ async function main() {
       category: "Baby Clothing",
       brand: "Kiddie Lane",
       description: "Cosy fleece hoodie with matching pants. Unisex colours for cool evenings.",
-      image: "/products/hoodie-set.svg",
+      image: "/products/hoodie-set.jpg",
       serialPrefix: "KLHS-106",
       variants: [
         { sizeLabel: "0-6 months", color: "Grey", price: 11500, qty: 8, restockedDaysAgo: 25 },
@@ -156,7 +156,7 @@ async function main() {
       category: "Baby Clothing",
       brand: "Kiddie Lane",
       description: "Three soft cotton sleepsuits with snap buttons. Everyday value pack.",
-      image: "/products/sleepsuit.svg",
+      image: "/products/sleepsuit.jpg",
       serialPrefix: "KLSS-107",
       variants: [
         { sizeLabel: "0-6 months", color: "Mixed", price: 16000, qty: 10, restockedDaysAgo: 14 },
@@ -169,7 +169,7 @@ async function main() {
       category: "Baby Clothing",
       brand: "Kiddie Lane",
       description: "White christening gown set with matching cap. Premium finish.",
-      image: "/products/christening.svg",
+      image: "/products/christening.jpg",
       serialPrefix: "KLCO-108",
       variants: [
         { sizeLabel: "0-6 months", color: "White", price: 22000, qty: 3, restockedDaysAgo: 55, notes: "Made to order — 2 week lead time" },
@@ -181,7 +181,7 @@ async function main() {
       category: "Kids Shoes",
       brand: "Skipers",
       description: "Easy-wear canvas slip-ons with rubber sole. Machine washable.",
-      image: "/products/canvas-slipon.svg",
+      image: "/products/canvas-slipon.jpg",
       serialPrefix: "SKCS-205",
       variants: [
         { sizeLabel: "28", color: "Navy", price: 15000, qty: 9, restockedDaysAgo: 25 },
@@ -196,7 +196,7 @@ async function main() {
       category: "Kids Shoes",
       brand: "GlowStep",
       description: "LED light-up sneakers with hook-and-loop strap. Kids' favourite.",
-      image: "/products/lightup-sneaker.svg",
+      image: "/products/lightup-sneaker.jpg",
       serialPrefix: "GSKL-206",
       variants: [
         { sizeLabel: "28", color: "Silver", price: 18000, qty: 5, restockedDaysAgo: 15 },
@@ -210,7 +210,7 @@ async function main() {
       category: "Kids Shoes",
       brand: "Skipers",
       description: "Firm-ground cleats for young footballers. Padded ankle collar.",
-      image: "/products/sports-cleats.svg",
+      image: "/products/sports-cleats.jpg",
       serialPrefix: "SKCT-207",
       variants: [
         { sizeLabel: "28", color: "Blue", price: 17500, qty: 5, restockedDaysAgo: 30 },
@@ -224,7 +224,7 @@ async function main() {
       category: "Kids Shoes",
       brand: "GlowStep",
       description: "Glittery flats with ankle strap. Party-ready and comfortable.",
-      image: "/products/sparkle-flats.svg",
+      image: "/products/sparkle-flats.jpg",
       serialPrefix: "GSPF-208",
       variants: [
         { sizeLabel: "28", color: "Silver", price: 13000, qty: 6, restockedDaysAgo: 48 },
@@ -238,7 +238,7 @@ async function main() {
       category: "Kids Shoes",
       brand: "Skipers",
       description: "Breathable sandals with easy velcro straps. Perfect for the heat.",
-      image: "/products/kids-sandals.svg",
+      image: "/products/kids-sandals.jpg",
       serialPrefix: "SKSD-209",
       variants: [
         { sizeLabel: "28", color: "Navy", price: 9500, qty: 9, restockedDaysAgo: 20 },
@@ -252,7 +252,7 @@ async function main() {
       category: "Footwear",
       brand: "Striide",
       description: "Cushioned everyday running sneakers. Original quality, full size run.",
-      image: "/products/air-runner.svg",
+      image: "/products/air-runner.jpg",
       serialPrefix: "STAR-301",
       variants: [
         { sizeLabel: "39", color: "White", price: 45000, qty: 6, restockedDaysAgo: 20 },
@@ -270,7 +270,7 @@ async function main() {
       category: "Footwear",
       brand: "Raven",
       description: "Polished leather loafers for office and occasions. True to size.",
-      image: "/products/leather-loafer.svg",
+      image: "/products/leather-loafer.jpg",
       serialPrefix: "RVCL-302",
       variants: [
         { sizeLabel: "39", color: "Brown", price: 38000, qty: 4, restockedDaysAgo: 35 },
@@ -286,7 +286,7 @@ async function main() {
       category: "Footwear",
       brand: "Striide",
       description: "Classic canvas high-tops that go with everything. All-season.",
-      image: "/products/high-tops.svg",
+      image: "/products/high-tops.jpg",
       serialPrefix: "STRI-303",
       variants: [
         { sizeLabel: "39", color: "White", price: 32000, qty: 7, restockedDaysAgo: 22 },
@@ -302,7 +302,7 @@ async function main() {
       category: "Footwear",
       brand: "Raven",
       description: "Slip-on suede chelsea boots with elastic gore. Sharp with everything.",
-      image: "/products/chelsea-boots.svg",
+      image: "/products/chelsea-boots.jpg",
       serialPrefix: "RVSB-304",
       variants: [
         { sizeLabel: "40", color: "Brown", price: 52000, qty: 5, restockedDaysAgo: 35 },
@@ -316,7 +316,7 @@ async function main() {
       category: "Footwear",
       brand: "Raven",
       description: "Comfortable block heels for work and events. Cushioned insole.",
-      image: "/products/block-heels.svg",
+      image: "/products/block-heels.jpg",
       serialPrefix: "STHE-305",
       variants: [
         { sizeLabel: "39", color: "Black", price: 29000, qty: 6, restockedDaysAgo: 28 },
@@ -330,7 +330,7 @@ async function main() {
       category: "Footwear",
       brand: "Striide",
       description: "Hand-finished leather slides. Moulds to the foot over time.",
-      image: "/products/leather-sandals.svg",
+      image: "/products/leather-sandals.jpg",
       serialPrefix: "STMS-306",
       variants: [
         { sizeLabel: "41", color: "Brown", price: 26000, qty: 8, restockedDaysAgo: 32 },
@@ -345,7 +345,7 @@ async function main() {
       category: "Accessories",
       brand: "Aunty's Picks",
       description: "Hand-tied ankara headwrap, stiffened edge for easy tying. Assorted prints.",
-      image: "/products/ankara-headwrap.svg",
+      image: "/products/ankara-headwrap.jpg",
       serialPrefix: "APAH-401",
       variants: [
         { sizeLabel: "One Size", color: "Gold", price: 5500, qty: 18, restockedDaysAgo: 10 },
@@ -359,7 +359,7 @@ async function main() {
       category: "Accessories",
       brand: "Aunty's Picks",
       description: "Soft fleece pram blanket, generous 90×90cm size. Gift-wrap available.",
-      image: "/products/pram-blanket.svg",
+      image: "/products/pram-blanket.jpg",
       serialPrefix: "APBP-402",
       variants: [
         { sizeLabel: "One Size", color: "Mint", price: 6500, qty: 13, restockedDaysAgo: 22 },
@@ -372,7 +372,7 @@ async function main() {
       category: "Accessories",
       brand: "Aunty's Picks",
       description: "Padded-back school backpack, 18L, water-resistant front pocket.",
-      image: "/products/kids-backpack.svg",
+      image: "/products/kids-backpack.jpg",
       serialPrefix: "APKB-403",
       variants: [
         { sizeLabel: "One Size", color: "Blue", price: 12000, qty: 15, restockedDaysAgo: 12 },
@@ -385,7 +385,7 @@ async function main() {
       category: "Accessories",
       brand: "Aunty's Picks",
       description: "Leak-proof two-tier lunch box with carry strap. BPA-free.",
-      image: "/products/lunch-box.svg",
+      image: "/products/lunch-box.jpg",
       serialPrefix: "APLB-404",
       variants: [
         { sizeLabel: "One Size", color: "Mint", price: 8500, qty: 14, restockedDaysAgo: 16 },
@@ -397,7 +397,7 @@ async function main() {
       category: "Accessories",
       brand: "Aunty's Picks",
       description: "Food-grade silicone pacifier clips, set of 2. Rust-free snaps.",
-      image: "/products/pacifier-clip.svg",
+      image: "/products/pacifier-clip.jpg",
       serialPrefix: "APPC-405",
       variants: [
         { sizeLabel: "One Size", color: "Pastel", price: 4500, qty: 20, restockedDaysAgo: 8 },
@@ -408,7 +408,7 @@ async function main() {
       category: "Accessories",
       brand: "Aunty's Picks",
       description: "Shatter-proof UV400 sunglasses with adjustable strap.",
-      image: "/products/kids-sunglasses.svg",
+      image: "/products/kids-sunglasses.jpg",
       serialPrefix: "APSG-406",
       variants: [
         { sizeLabel: "One Size", color: "Black", price: 6000, qty: 10, restockedDaysAgo: 26 },
@@ -420,7 +420,7 @@ async function main() {
       category: "Accessories",
       brand: "Aunty's Picks",
       description: "Six assorted satin bows on strong clips. Gift-boxed.",
-      image: "/products/hair-bows.svg",
+      image: "/products/hair-bows.jpg",
       serialPrefix: "APHB-407",
       variants: [
         { sizeLabel: "One Size", color: "Assorted", price: 5000, qty: 18, restockedDaysAgo: 10 },
@@ -431,7 +431,7 @@ async function main() {
       category: "Toys",
       brand: "PlayWood",
       description: "24-piece wooden block set with non-toxic paint. Builds motor skills.",
-      image: "/products/stacking-blocks.svg",
+      image: "/products/stacking-blocks.jpg",
       serialPrefix: "TYWB-501",
       variants: [
         { sizeLabel: "One Size", color: "Natural", price: 10500, qty: 9, restockedDaysAgo: 24 },
@@ -442,7 +442,7 @@ async function main() {
       category: "Toys",
       brand: "PlayWood",
       description: "Super-soft 60cm teddy bear, safe from birth. Machine washable.",
-      image: "/products/teddy-bear.svg",
+      image: "/products/teddy-bear.jpg",
       serialPrefix: "TYTB-502",
       variants: [
         { sizeLabel: "One Size", color: "Cream", price: 13500, qty: 12, restockedDaysAgo: 19 },
@@ -454,7 +454,7 @@ async function main() {
       category: "Toys",
       brand: "PlayWood",
       description: "Lean-to-steer scooter with light-up wheels and adjustable bar.",
-      image: "/products/scooter.svg",
+      image: "/products/scooter.jpg",
       serialPrefix: "TYSR-503",
       variants: [
         { sizeLabel: "One Size", color: "Blue", price: 45000, qty: 5, restockedDaysAgo: 36 },
@@ -466,7 +466,7 @@ async function main() {
       category: "Toys",
       brand: "PlayWood",
       description: "52 illustrated alphabet cards for early reading. Wipe-clean finish.",
-      image: "/products/flashcards.svg",
+      image: "/products/flashcards.jpg",
       serialPrefix: "TYFC-504",
       variants: [
         { sizeLabel: "One Size", color: "Mixed", price: 6500, qty: 16, restockedDaysAgo: 15 },
