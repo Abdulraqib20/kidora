@@ -41,6 +41,20 @@ const variantAgg = db
   .groupBy(variants.productId)
   .as("va");
 
+const salesByProduct = db
+  .select({
+    productId: variants.productId,
+    unitsSold: sql<number>`coalesce(sum(${orderItems.quantity}), 0)::int`.as(
+      "units_sold",
+    ),
+  })
+  .from(orderItems)
+  .innerJoin(orders, eq(orders.id, orderItems.orderId))
+  .innerJoin(variants, eq(variants.id, orderItems.variantId))
+  .where(ne(orders.status, "cancelled"))
+  .groupBy(variants.productId)
+  .as("sp");
+
 /* ── Storefront: product listing ────────────────────────────────────── */
 
 export type ProductListFilters = {
@@ -49,6 +63,7 @@ export type ProductListFilters = {
   sizeOptionId?: string;
   minPrice?: number;
   maxPrice?: number;
+  limit?: number;
 };
 
 export type ProductCard = {
@@ -60,6 +75,7 @@ export type ProductCard = {
   minPrice: number;
   totalStock: number;
   variantCount: number;
+  unitsSold: number;
 };
 
 export async function listProducts(filters: ProductListFilters): Promise<ProductCard[]> {
@@ -72,6 +88,7 @@ export async function listProducts(filters: ProductListFilters): Promise<Product
         ilike(products.name, like),
         ilike(products.brand, like),
         ilike(products.category, like),
+        sql`exists (select 1 from variants v where v.product_id = ${products.id} and v.serial_no ilike ${like})`,
       ),
     );
   }
@@ -99,11 +116,14 @@ export async function listProducts(filters: ProductListFilters): Promise<Product
       minPrice: sql<number>`coalesce(${variantAgg.minPrice}, 0)::float8`,
       totalStock: sql<number>`coalesce(${variantAgg.totalStock}, 0)::int`,
       variantCount: sql<number>`coalesce(${variantAgg.variantCount}, 0)::int`,
+      unitsSold: sql<number>`coalesce(${salesByProduct.unitsSold}, 0)::int`,
     })
     .from(products)
     .leftJoin(variantAgg, eq(variantAgg.productId, products.id))
+    .leftJoin(salesByProduct, eq(salesByProduct.productId, products.id))
     .where(conditions.length ? and(...conditions) : undefined)
-    .orderBy(desc(products.createdAt));
+    .orderBy(desc(products.createdAt))
+    .limit(filters.limit ?? 500);
 
   return rows;
 }
@@ -129,6 +149,7 @@ export type VariantDetail = {
   sizeCategory: string;
   sortOrder: number;
   notes: string | null;
+  qtySold: number;
 };
 
 export async function getProductWithVariants(productId: string) {
@@ -147,9 +168,11 @@ export async function getProductWithVariants(productId: string) {
       sizeCategory: sizeOptions.category,
       sortOrder: sizeOptions.sortOrder,
       notes: variants.notes,
+      qtySold: sql<number>`coalesce(${salesByVariant.qtySold}, 0)::int`,
     })
     .from(variants)
     .innerJoin(sizeOptions, eq(sizeOptions.id, variants.sizeOptionId))
+    .leftJoin(salesByVariant, eq(salesByVariant.variantId, variants.id))
     .where(eq(variants.productId, productId))
     .orderBy(asc(sizeOptions.category), asc(sizeOptions.sortOrder));
 
