@@ -17,7 +17,7 @@ export function StoreHeader() {
     <header className="sticky top-0 z-40 border-b bg-background/95 backdrop-blur">
       <div className="mx-auto flex w-full max-w-6xl items-center gap-3 px-4 py-3">
         <Link href="/" className="text-lg font-bold tracking-tight">
-          Boda Hameed<span className="text-primary">.</span>
+          Kidora<span className="text-primary">.</span>
         </Link>
 
         <form

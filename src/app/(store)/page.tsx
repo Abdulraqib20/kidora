@@ -9,18 +9,26 @@ const one = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v);
 
 export default async function StorePage({ searchParams }: PageProps<"/">) {
   const sp = (await searchParams) as SP;
+
+  // The size filter travels in the URL as its readable label (e.g.
+  // ?size=0-6+months) — resolve it to the option id for querying.
+  const sizeOptions = await listSizeOptions();
+  const sizeLabel = one(sp.size);
+  const sizeOption = sizeLabel
+    ? sizeOptions.find((o) => o.label.toLowerCase() === sizeLabel.toLowerCase())
+    : undefined;
+
   const filters = {
     q: one(sp.q) || undefined,
     category: one(sp.category) || undefined,
-    sizeOptionId: one(sp.size) || undefined,
+    sizeOptionId: sizeOption?.id,
     minPrice: one(sp.minPrice) ? Number(one(sp.minPrice)) : undefined,
     maxPrice: one(sp.maxPrice) ? Number(one(sp.maxPrice)) : undefined,
   };
 
-  const [items, categories, sizeOptions] = await Promise.all([
+  const [items, categories] = await Promise.all([
     listProducts(filters),
     listCategories(),
-    listSizeOptions(),
   ]);
 
   return (

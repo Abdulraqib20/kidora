@@ -82,7 +82,7 @@ export function ProductFilters({ categories, sizeOptions }: Props) {
                 {categoryLabels[cat] ?? cat}
               </p>
               {opts.map((o) => (
-                <SelectItem key={o.id} value={o.id}>
+                <SelectItem key={o.id} value={o.label}>
                   {o.label}
                 </SelectItem>
               ))}

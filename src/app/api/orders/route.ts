@@ -13,7 +13,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: parsed.error.issues[0].message }, { status: 422 });
   }
   const body = parsed.data;
-  const reference = `boda-${crypto.randomUUID()}`;
+  const reference = `kidora-${crypto.randomUUID()}`;
 
   let result: { orderId: string; total: number; email: string };
   try {

@@ -10,7 +10,7 @@ export default function StoreLayout({ children }: { children: React.ReactNode })
       </main>
       <footer className="border-t">
         <div className="mx-auto flex w-full max-w-6xl flex-col gap-2 px-4 py-6 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} Boda Hameed Store</p>
+          <p>© {new Date().getFullYear()} Kidora</p>
           <Link href="/admin" className="hover:text-foreground">
             Store management
           </Link>

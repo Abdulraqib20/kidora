@@ -300,14 +300,14 @@ async function main() {
 
   /* ── Admin account ── */
   console.log("Creating admin account…");
-  const adminEmail = process.env.ADMIN_EMAIL || "admin@bodahameed.ng";
+  const adminEmail = process.env.ADMIN_EMAIL || "admin@kidora.store";
   const adminPassword = process.env.ADMIN_PASSWORD || "Admin123!";
   const { user } = await auth.api.signUpEmail({
     body: { name: "Store Admin", email: adminEmail, password: adminPassword },
   });
   await db.update(schema.user).set({ role: "admin" }).where(eq(schema.user.id, user.id));
 
-  console.log(`✔ Seed complete. Admin: ${adminEmail} / ${adminPassword}`);
+  console.log(`✔ Seed complete. Admin: ${adminEmail} / ${adminPassword} (change ADMIN_PASSWORD in .env before going live)`);
   await pool.end();
 }
 

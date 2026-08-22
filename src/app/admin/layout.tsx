@@ -32,7 +32,7 @@ export default async function AdminLayout({
       <aside className="hidden w-60 shrink-0 flex-col border-r bg-card md:flex">
         <div className="border-b p-4">
           <p className="font-bold">
-            Boda Hameed<span className="text-primary">.</span>
+            Kidora<span className="text-primary">.</span>
           </p>
           <p className="text-xs text-muted-foreground">Store management</p>
         </div>
