@@ -16,8 +16,11 @@ import {
 const salesByVariant = db
   .select({
     variantId: orderItems.variantId,
-    qtySold: sql<number>`coalesce(sum(${orderItems.quantity}), 0)::int`,
-    totalSales: sql<number>`coalesce(sum(${orderItems.quantity} * ${orderItems.unitPrice}), 0)::float8`,
+    qtySold: sql<number>`coalesce(sum(${orderItems.quantity}), 0)::int`.as("qty_sold"),
+    totalSales:
+      sql<number>`coalesce(sum(${orderItems.quantity} * ${orderItems.unitPrice}), 0)::float8`.as(
+        "total_sales",
+      ),
   })
   .from(orderItems)
   .innerJoin(orders, eq(orders.id, orderItems.orderId))
@@ -28,9 +31,11 @@ const salesByVariant = db
 const variantAgg = db
   .select({
     productId: variants.productId,
-    minPrice: sql<number>`min(${variants.price})::float8`,
-    totalStock: sql<number>`coalesce(sum(${variants.quantityInStock}), 0)::int`,
-    variantCount: sql<number>`count(*)::int`,
+    minPrice: sql<number>`min(${variants.price})::float8`.as("min_price"),
+    totalStock: sql<number>`coalesce(sum(${variants.quantityInStock}), 0)::int`.as(
+      "total_stock",
+    ),
+    variantCount: sql<number>`count(*)::int`.as("variant_count"),
   })
   .from(variants)
   .groupBy(variants.productId)
@@ -211,7 +216,7 @@ export async function listSizeOptions(category?: string): Promise<SizeOptionWith
   const counts = db
     .select({
       sizeOptionId: variants.sizeOptionId,
-      variantCount: sql<number>`count(*)::int`,
+      variantCount: sql<number>`count(*)::int`.as("variant_count"),
     })
     .from(variants)
     .groupBy(variants.sizeOptionId)
