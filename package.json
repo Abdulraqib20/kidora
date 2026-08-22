@@ -12,6 +12,8 @@
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
     "db:seed": "tsx src/db/seed.ts",
+    "db:migrate:prod": "sh -c 'DATABASE_URL=\"$(grep -m1 \"^DATABASE_URL=\" .env.production | cut -d= -f2-)\" npx drizzle-kit migrate'",
+    "db:seed:prod": "sh -c 'DATABASE_URL=\"$(grep -m1 \"^DATABASE_URL=\" .env.production | cut -d= -f2-)\" npx tsx src/db/seed.ts'",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
