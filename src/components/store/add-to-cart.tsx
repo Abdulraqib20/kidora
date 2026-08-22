@@ -21,7 +21,9 @@ const sizeCategoryLabel: Record<string, string> = {
   free_size: "Size",
 };
 
+/** Product variant selection, stock validation, quantity adjustment, and cart submission control. */
 export function AddToCart({ variants, product }: Props) {
+
   const { add } = useCart();
   const firstAvailable = variants.find((v) => v.quantityInStock > 0) ?? variants[0];
   const [variantId, setVariantId] = useState<string | undefined>(firstAvailable?.id);

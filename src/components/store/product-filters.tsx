@@ -19,7 +19,9 @@ type Props = {
   sizeOptions: SizeOptionWithUsage[];
 };
 
+/** Filter controls for categories, size groups, and min/max price thresholds. */
 export function ProductFilters({ categories, sizeOptions }: Props) {
+
   const router = useRouter();
   const sp = useSearchParams();
 

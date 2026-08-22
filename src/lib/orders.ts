@@ -2,7 +2,7 @@ import { and, eq, sql } from "drizzle-orm";
 import { db } from "@/db";
 import { orderItems, orders, variants } from "@/db/schema";
 
-// Idempotent pending→paid flip (webhook and verify callback may both fire).
+/** Mark a pending order as paid idempotently across webhook and verify callbacks. */
 export async function markOrderPaid(orderId: string): Promise<boolean> {
   const rows = await db
     .update(orders)
@@ -12,7 +12,7 @@ export async function markOrderPaid(orderId: string): Promise<boolean> {
   return rows.length > 0;
 }
 
-// Cancel restores reserved stock inside one transaction.
+/** Cancel an order and restore reserved stock quantities within a database transaction. */
 export async function cancelOrder(
   orderId: string,
 ): Promise<{ ok: boolean; reason?: string }> {
@@ -38,6 +38,7 @@ export async function cancelOrder(
   });
 }
 
+/** Custom error carrying an HTTP status code for order and checkout exceptions. */
 export class OrderError extends Error {
   status: number;
   constructor(message: string, status = 400) {
@@ -45,3 +46,4 @@ export class OrderError extends Error {
     this.status = status;
   }
 }
+

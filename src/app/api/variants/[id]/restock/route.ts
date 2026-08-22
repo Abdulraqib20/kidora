@@ -7,7 +7,9 @@ import { restockSchema } from "@/lib/validation";
 
 type Ctx = { params: Promise<{ id: string }> };
 
+/** Restock variant inventory units and reset the restocked timestamp (admin only). */
 export async function POST(req: Request, { params }: Ctx) {
+
   if (!(await getAdminSession())) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }

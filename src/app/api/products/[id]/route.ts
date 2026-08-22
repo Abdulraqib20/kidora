@@ -8,6 +8,7 @@ import { productUpdateSchema } from "@/lib/validation";
 
 type Ctx = { params: Promise<{ id: string }> };
 
+/** Fetch product details and all associated variants by product ID. */
 export async function GET(_req: Request, { params }: Ctx) {
   const { id } = await params;
   const result = await getProductWithVariants(id);
@@ -15,6 +16,7 @@ export async function GET(_req: Request, { params }: Ctx) {
   return NextResponse.json(result);
 }
 
+/** Update product catalogue information (admin only). */
 export async function PATCH(req: Request, { params }: Ctx) {
   if (!(await getAdminSession())) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -33,6 +35,7 @@ export async function PATCH(req: Request, { params }: Ctx) {
   return NextResponse.json({ product });
 }
 
+/** Delete a product if it has no associated sales history (admin only). */
 export async function DELETE(_req: Request, { params }: Ctx) {
   if (!(await getAdminSession())) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -58,3 +61,4 @@ export async function DELETE(_req: Request, { params }: Ctx) {
   }
   return NextResponse.json({ ok: true });
 }
+

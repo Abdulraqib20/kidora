@@ -1,7 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import { listProducts } from "@/lib/queries";
 
+/** Search products and variants by keyword for the header quick-search dropdown. */
 export async function GET(req: NextRequest) {
+
   const q = (req.nextUrl.searchParams.get("q") || "").trim();
   if (q.length < 2) return NextResponse.json({ results: [] });
 

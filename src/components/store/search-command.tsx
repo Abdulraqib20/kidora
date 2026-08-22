@@ -16,7 +16,9 @@ type SearchResult = {
   unitsSold: number;
 };
 
+/** Instant search input with debounced API queries, result preview dropdown, and dismissal handlers. */
 export function SearchCommand() {
+
   const router = useRouter();
   const [q, setQ] = useState("");
   const [results, setResults] = useState<SearchResult[]>([]);

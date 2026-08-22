@@ -13,7 +13,9 @@ import { formatNaira } from "@/lib/money";
 
 type Point = { day: string; revenue: number };
 
+/** 30-day area chart rendering daily revenue with date tooltips and missing day interpolation. */
 export function RevenueChart({ data }: { data: Point[] }) {
+
   // Fill in days with zero revenue so the axis shows the full window.
   const byDay = new Map(data.map((d) => [d.day, d.revenue]));
   const filled: Point[] = [];

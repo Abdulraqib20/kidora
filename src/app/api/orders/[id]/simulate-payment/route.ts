@@ -4,8 +4,9 @@ import { paystackEnabled } from "@/lib/paystack";
 
 type Ctx = { params: Promise<{ id: string }> };
 
-// Dev-only stand-in for the Paystack redirect; disabled once a real key exists.
+/** Simulate successful checkout payment for local development when Paystack is unconfigured. */
 export async function POST(_req: Request, { params }: Ctx) {
+
   if (paystackEnabled()) {
     return NextResponse.json({ error: "Not found" }, { status: 404 });
   }

@@ -8,7 +8,9 @@ import { cn } from "@/lib/utils";
 import { useCart } from "@/lib/cart";
 import { formatNaira } from "@/lib/money";
 
+/** Shopping cart view displaying line items, quantity controls, removal actions, and checkout CTA. */
 export function CartView() {
+
   const { items, subtotal, setQuantity, remove, count } = useCart();
 
   if (items.length === 0) {

@@ -5,6 +5,7 @@ import { getAdminSession } from "@/lib/session";
 import { listProducts } from "@/lib/queries";
 import { productCreateSchema } from "@/lib/validation";
 
+/** List catalogue products matching query filters and price constraints. */
 export async function GET(req: NextRequest) {
   const sp = req.nextUrl.searchParams;
   const minPrice = sp.get("minPrice");
@@ -19,6 +20,7 @@ export async function GET(req: NextRequest) {
   return NextResponse.json({ products: rows });
 }
 
+/** Create a new product entry in the catalogue (admin only). */
 export async function POST(req: Request) {
   if (!(await getAdminSession())) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -30,3 +32,4 @@ export async function POST(req: Request) {
   const [product] = await db.insert(products).values(parsed.data).returning();
   return NextResponse.json({ product }, { status: 201 });
 }
+

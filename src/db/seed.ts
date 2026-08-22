@@ -10,11 +10,13 @@ const daysAgo = (n: number, h = 10) => {
   return d;
 };
 
+/** Seed database with size categories, initial catalogue, variant stock, orders, and admin. */
 async function main() {
   console.log("Clearing existing data…");
   await db.execute(
     sql`TRUNCATE order_items, orders, customers, variants, products, size_options, verification, account, session, "user" RESTART IDENTITY CASCADE`,
   );
+
 
   /* ── Size systems (admin-editable at runtime) ── */
   console.log("Seeding size options…");

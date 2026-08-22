@@ -5,7 +5,9 @@ import { cn } from "@/lib/utils";
 
 const LOW_STOCK = 5;
 
+/** Product catalog card displaying thumbnail, price, stock warning badge, and sales count. */
 export function ProductCard({ product }: { product: ProductCardData }) {
+
   const image = product.images[0];
   const soldOut = product.totalStock === 0;
   const lowStock = !soldOut && product.totalStock <= LOW_STOCK;

@@ -7,7 +7,9 @@ import { initializeTransaction, paystackEnabled } from "@/lib/paystack";
 import { OrderError, cancelOrder } from "@/lib/orders";
 import { orderCreateSchema } from "@/lib/validation";
 
+/** Create customer order with stock reservations and initiate payment processing. */
 export async function POST(req: Request) {
+
   const parsed = orderCreateSchema.safeParse(await req.json());
   if (!parsed.success) {
     return NextResponse.json({ error: parsed.error.issues[0].message }, { status: 422 });

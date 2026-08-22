@@ -14,7 +14,9 @@ import { authClient } from "@/lib/auth-client";
 import { useCart } from "@/lib/cart";
 import { formatNaira } from "@/lib/money";
 
+/** Customer checkout form capturing shipping details, prefilling session data, and routing to payment. */
 export function CheckoutForm() {
+
   const { items, subtotal, clear, count } = useCart();
   const { data: session } = authClient.useSession();
   const router = useRouter();

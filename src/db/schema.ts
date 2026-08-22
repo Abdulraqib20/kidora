@@ -12,8 +12,7 @@ import {
   uuid,
 } from "drizzle-orm/pg-core";
 
-/* ── Better Auth tables ─────────────────────────────────────────────── */
-
+/** Better Auth user accounts table storing profile info and role assignment. */
 export const user = pgTable("user", {
   id: uuid("id").primaryKey().defaultRandom(),
   name: text("name").notNull(),
@@ -25,6 +24,7 @@ export const user = pgTable("user", {
   updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
 });
 
+/** Better Auth active user sessions table mapping session tokens to users. */
 export const session = pgTable("session", {
   id: uuid("id").primaryKey().defaultRandom(),
   userId: uuid("user_id")
@@ -38,6 +38,7 @@ export const session = pgTable("session", {
   updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
 });
 
+/** Better Auth account credentials and external auth provider records. */
 export const account = pgTable("account", {
   id: uuid("id").primaryKey().defaultRandom(),
   userId: uuid("user_id")
@@ -57,6 +58,7 @@ export const account = pgTable("account", {
   updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
 });
 
+/** Better Auth verification tokens table for password resets and email verification. */
 export const verification = pgTable("verification", {
   id: uuid("id").primaryKey().defaultRandom(),
   identifier: text("identifier").notNull(),
@@ -66,8 +68,7 @@ export const verification = pgTable("verification", {
   updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
 });
 
-/* ── Business tables (spec: variant-based retail inventory) ─────────── */
-
+/** Catalogue products table storing display metadata, categorization, and imagery. */
 export const products = pgTable(
   "products",
   {
@@ -85,7 +86,7 @@ export const products = pgTable(
   (t) => [index("products_category_idx").on(t.category)],
 );
 
-/* Size/age brackets — admin-editable lookup table, deliberately NOT an enum. */
+/** Dynamic size and age bracket lookup table configured per category. */
 export const sizeOptions = pgTable(
   "size_options",
   {
@@ -101,6 +102,7 @@ export const sizeOptions = pgTable(
   ],
 );
 
+/** Product SKU variants tracking unique serial numbers, pricing, and stock on hand. */
 export const variants = pgTable(
   "variants",
   {
@@ -114,7 +116,6 @@ export const variants = pgTable(
       .references(() => sizeOptions.id),
     color: text("color"),
     price: numeric("price", { precision: 10, scale: 2 }).notNull(),
-    // Current on-hand: decremented at order creation (reservation), incremented on restock.
     quantityInStock: integer("quantity_in_stock").notNull().default(0),
     restockedAt: timestamp("restocked_at", { withTimezone: true }).notNull().defaultNow(),
     notes: text("notes"),
@@ -126,6 +127,7 @@ export const variants = pgTable(
   ],
 );
 
+/** Customer directory table capturing contact details during checkout. */
 export const customers = pgTable("customers", {
   id: uuid("id").primaryKey().defaultRandom(),
   name: text("name").notNull(),
@@ -141,6 +143,7 @@ export const orderStatusEnum = pgEnum("order_status", [
   "cancelled",
 ]);
 
+/** Order headers table tracking payment references, totals, and fulfillment statuses. */
 export const orders = pgTable(
   "orders",
   {
@@ -160,6 +163,7 @@ export const orders = pgTable(
   ],
 );
 
+/** Order line items storing purchased variant quantities and historical unit prices. */
 export const orderItems = pgTable(
   "order_items",
   {
@@ -178,8 +182,6 @@ export const orderItems = pgTable(
     index("order_items_variant_idx").on(t.variantId),
   ],
 );
-
-/* ── Relations ──────────────────────────────────────────────────────── */
 
 export const productsRelations = relations(products, ({ many }) => ({
   variants: many(variants),
@@ -203,8 +205,6 @@ export const orderItemsRelations = relations(orderItems, ({ one }) => ({
   variant: one(variants, { fields: [orderItems.variantId], references: [variants.id] }),
 }));
 
-/* ── Shared types ───────────────────────────────────────────────────── */
-
 export type Product = typeof products.$inferSelect;
 export type NewProduct = typeof products.$inferInsert;
 export type SizeOption = typeof sizeOptions.$inferSelect;
@@ -214,3 +214,4 @@ export type Customer = typeof customers.$inferSelect;
 export type Order = typeof orders.$inferSelect;
 export type OrderItem = typeof orderItems.$inferSelect;
 export type OrderStatus = (typeof orderStatusEnum.enumValues)[number];
+

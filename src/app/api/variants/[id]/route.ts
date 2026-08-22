@@ -8,6 +8,7 @@ import { isUniqueViolation } from "@/lib/errors";
 
 type Ctx = { params: Promise<{ id: string }> };
 
+/** Update variant attributes, pricing, or inventory notes (admin only). */
 export async function PATCH(req: Request, { params }: Ctx) {
   if (!(await getAdminSession())) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -37,6 +38,7 @@ export async function PATCH(req: Request, { params }: Ctx) {
   }
 }
 
+/** Delete a variant if it has no associated sales history (admin only). */
 export async function DELETE(_req: Request, { params }: Ctx) {
   if (!(await getAdminSession())) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -61,3 +63,4 @@ export async function DELETE(_req: Request, { params }: Ctx) {
   }
   return NextResponse.json({ ok: true });
 }
+

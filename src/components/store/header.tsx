@@ -6,7 +6,9 @@ import { Button } from "@/components/ui/button";
 import { useCart } from "@/lib/cart";
 import { SearchCommand } from "@/components/store/search-command";
 
+/** Storefront sticky header with brand identity, search bar, account link, and live cart counter. */
 export function StoreHeader() {
+
   const { count } = useCart();
 
   return (

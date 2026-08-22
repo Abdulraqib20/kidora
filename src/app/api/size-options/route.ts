@@ -6,11 +6,13 @@ import { listSizeOptions } from "@/lib/queries";
 import { sizeOptionCreateSchema } from "@/lib/validation";
 import { isUniqueViolation } from "@/lib/errors";
 
+/** List size options and variant counts, optionally filtered by category. */
 export async function GET(req: NextRequest) {
   const category = req.nextUrl.searchParams.get("category") || undefined;
   return NextResponse.json({ sizeOptions: await listSizeOptions(category) });
 }
 
+/** Create a new size or age bracket option (admin only). */
 export async function POST(req: Request) {
   if (!(await getAdminSession())) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -32,3 +34,4 @@ export async function POST(req: Request) {
     throw e;
   }
 }
+

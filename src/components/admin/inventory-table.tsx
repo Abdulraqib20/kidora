@@ -32,7 +32,9 @@ import { daysSince } from "@/lib/dates";
 const LOW_STOCK_THRESHOLD = 5;
 const STALE_STOCK_DAYS = 60;
 
+/** Admin inventory ledger table with real-time text search, inline restock dialog, and note editor. */
 export function InventoryTable({ rows }: { rows: InventoryRow[] }) {
+
   const router = useRouter();
   const [query, setQuery] = useState("");
   const [busyId, setBusyId] = useState<string | null>(null);

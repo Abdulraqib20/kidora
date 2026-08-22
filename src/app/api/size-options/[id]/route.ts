@@ -8,6 +8,7 @@ import { isUniqueViolation } from "@/lib/errors";
 
 type Ctx = { params: Promise<{ id: string }> };
 
+/** Update size option label or sort order (admin only). */
 export async function PATCH(req: Request, { params }: Ctx) {
   if (!(await getAdminSession())) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -36,6 +37,7 @@ export async function PATCH(req: Request, { params }: Ctx) {
   }
 }
 
+/** Delete a size option if not currently referenced by any variants (admin only). */
 export async function DELETE(_req: Request, { params }: Ctx) {
   if (!(await getAdminSession())) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -60,3 +62,4 @@ export async function DELETE(_req: Request, { params }: Ctx) {
   }
   return NextResponse.json({ ok: true });
 }
+

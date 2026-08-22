@@ -7,7 +7,7 @@ import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { formatNaira } from "@/lib/money";
 
-// Dev-only stand-in shown when PAYSTACK_SECRET_KEY is not configured.
+/** Dev-mode payment simulator for completing orders when Paystack credentials are unset. */
 export function SimulatePayment({
   orderId,
   total,
@@ -15,6 +15,7 @@ export function SimulatePayment({
   orderId: string;
   total: number;
 }) {
+
   const router = useRouter();
   const [busy, setBusy] = useState(false);
 

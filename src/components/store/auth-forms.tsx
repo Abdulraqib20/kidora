@@ -9,7 +9,9 @@ import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { authClient } from "@/lib/auth-client";
 
+/** Customer authentication tabs handling email/password sign-in and account creation. */
 export function AuthForms() {
+
   const router = useRouter();
   const [busy, setBusy] = useState(false);
   const [signIn, setSignIn] = useState({ email: "", password: "" });

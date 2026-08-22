@@ -9,10 +9,7 @@ import {
   variants,
 } from "@/db/schema";
 
-/* ── Shared aggregate subqueries ──────────────────────────────────────
-   qty_sold / total_sales are always derived from order_items (excluding
-   cancelled orders) — never stored on variants. */
-
+// Live sales subquery deriving units and revenue from non-cancelled order items.
 const salesByVariant = db
   .select({
     variantId: orderItems.variantId,
@@ -55,8 +52,6 @@ const salesByProduct = db
   .groupBy(variants.productId)
   .as("sp");
 
-/* ── Storefront: product listing ────────────────────────────────────── */
-
 export type ProductListFilters = {
   q?: string;
   category?: string;
@@ -78,6 +73,7 @@ export type ProductCard = {
   unitsSold: number;
 };
 
+/** Query storefront products with aggregated price ranges, stock totals, and active filters. */
 export async function listProducts(filters: ProductListFilters): Promise<ProductCard[]> {
   const conditions = [];
 
@@ -128,6 +124,7 @@ export async function listProducts(filters: ProductListFilters): Promise<Product
   return rows;
 }
 
+/** Fetch unique product categories sorted alphabetically for navigation. */
 export async function listCategories(): Promise<string[]> {
   const rows = await db
     .selectDistinct({ category: products.category })
@@ -136,7 +133,6 @@ export async function listCategories(): Promise<string[]> {
   return rows.map((r) => r.category);
 }
 
-/* ── Storefront: product detail ─────────────────────────────────────── */
 
 export type VariantDetail = {
   id: string;
@@ -152,6 +148,7 @@ export type VariantDetail = {
   qtySold: number;
 };
 
+/** Fetch product record and associated variants with size and sales details by ID. */
 export async function getProductWithVariants(productId: string) {
   const [product] = await db.select().from(products).where(eq(products.id, productId));
   if (!product) return null;
@@ -179,8 +176,6 @@ export async function getProductWithVariants(productId: string) {
   return { product, variants: rows satisfies VariantDetail[] };
 }
 
-/* ── Admin: inventory ledger (mirrors the paper ledger columns) ─────── */
-
 export type InventoryRow = {
   variantId: string;
   productId: string;
@@ -199,6 +194,7 @@ export type InventoryRow = {
   totalSales: number;
 };
 
+/** Fetch full inventory ledger rows combining variants, pricing, stock levels, and sales totals. */
 export async function getInventoryRows(): Promise<InventoryRow[]> {
   return db
     .select({
@@ -225,8 +221,6 @@ export async function getInventoryRows(): Promise<InventoryRow[]> {
     .orderBy(asc(products.name), asc(sizeOptions.sortOrder));
 }
 
-/* ── Size options ───────────────────────────────────────────────────── */
-
 export type SizeOptionWithUsage = {
   id: string;
   label: string;
@@ -235,6 +229,7 @@ export type SizeOptionWithUsage = {
   variantCount: number;
 };
 
+/** Fetch size options with active variant usage counts, optionally filtered by category. */
 export async function listSizeOptions(category?: string): Promise<SizeOptionWithUsage[]> {
   const counts = db
     .select({
@@ -259,8 +254,6 @@ export async function listSizeOptions(category?: string): Promise<SizeOptionWith
     .orderBy(asc(sizeOptions.category), asc(sizeOptions.sortOrder));
 }
 
-/* ── Orders ─────────────────────────────────────────────────────────── */
-
 export type OrderSummary = {
   id: string;
   status: "pending" | "paid" | "shipped" | "cancelled";
@@ -272,6 +265,7 @@ export type OrderSummary = {
   itemCount: number;
 };
 
+/** Fetch order summaries with aggregated item counts, optionally filtered by order status. */
 export async function listOrders(status?: OrderSummary["status"]): Promise<OrderSummary[]> {
   return db
     .select({
@@ -292,6 +286,7 @@ export async function listOrders(status?: OrderSummary["status"]): Promise<Order
     .orderBy(desc(orders.createdAt));
 }
 
+/** Fetch customer order history and item counts matched by customer email address. */
 export async function listOrdersForEmail(email: string): Promise<OrderSummary[]> {
   return db
     .select({
@@ -314,6 +309,7 @@ export async function listOrdersForEmail(email: string): Promise<OrderSummary[]>
 
 export type OrderDetail = Awaited<ReturnType<typeof getOrderDetail>>;
 
+/** Fetch full order details including customer info and individual purchased line items. */
 export async function getOrderDetail(orderId: string) {
   const [order] = await db
     .select({
@@ -352,8 +348,7 @@ export async function getOrderDetail(orderId: string) {
   return { order, items };
 }
 
-/* ── Checkout: live variant data for server-side cart validation ────── */
-
+/** Query live stock and pricing for specific variant IDs to validate cart items before checkout. */
 export async function getVariantsForCheckout(variantIds: string[]) {
   if (variantIds.length === 0) return [];
   return db
@@ -369,8 +364,7 @@ export async function getVariantsForCheckout(variantIds: string[]) {
     .where(inArray(variants.id, variantIds));
 }
 
-/* ── Admin: dashboard ───────────────────────────────────────────────── */
-
+/** Aggregate 30-day revenue trends, top-selling variants, order status totals, and inventory value. */
 export async function getDashboardStats() {
   const revenue30 = await db
     .select({
@@ -424,3 +418,4 @@ export async function getDashboardStats() {
 
   return { revenue30, topVariants, totals, stock };
 }
+

@@ -5,7 +5,9 @@ import { orders } from "@/db/schema";
 import { markOrderPaid } from "@/lib/orders";
 import { verifyWebhookSignature } from "@/lib/paystack";
 
+/** Handle Paystack payment success webhooks and mark corresponding orders as paid. */
 export async function POST(req: Request) {
+
   const raw = await req.text();
   const signature = req.headers.get("x-paystack-signature");
 

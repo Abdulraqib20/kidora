@@ -1,3 +1,4 @@
+/** Format numeric or string amounts into Nigerian Naira currency notation. */
 export function formatNaira(value: number | string | null | undefined): string {
   const n = typeof value === "string" ? Number(value) : (value ?? 0);
   return `₦${(Number.isFinite(n) ? n : 0).toLocaleString("en-NG", {
@@ -5,3 +6,4 @@ export function formatNaira(value: number | string | null | undefined): string {
     maximumFractionDigits: Number.isInteger(n) ? 0 : 2,
   })}`;
 }
+

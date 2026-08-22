@@ -5,7 +5,9 @@ import { getAdminSession } from "@/lib/session";
 import { isUniqueViolation } from "@/lib/errors";
 import { variantCreateSchema } from "@/lib/validation";
 
+/** Create a new product SKU variant with unique serial number (admin only). */
 export async function POST(req: Request) {
+
   if (!(await getAdminSession())) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }

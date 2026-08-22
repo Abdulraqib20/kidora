@@ -4,11 +4,12 @@ const PAYSTACK_BASE = "https://api.paystack.co";
 
 const secret = () => process.env.PAYSTACK_SECRET_KEY || "";
 
-// When no secret key is configured, checkout runs in dev-simulated mode.
+/** Return true when Paystack secret key credentials are configured in the environment. */
 export function paystackEnabled(): boolean {
   return secret().length > 0;
 }
 
+/** Initialize a Paystack transaction in NGN kobo and return its hosted checkout authorization URL. */
 export async function initializeTransaction(opts: {
   email: string;
   amount: number; // naira
@@ -36,6 +37,7 @@ export async function initializeTransaction(opts: {
   return { authorizationUrl: data.data.authorization_url };
 }
 
+/** Verify transaction status and charged amount with Paystack by transaction reference. */
 export async function verifyTransaction(
   reference: string,
 ): Promise<{ status: "success" | "failed" | "pending"; amount: number }> {
@@ -50,7 +52,7 @@ export async function verifyTransaction(
   return { status: data.data.status, amount: data.data.amount / 100 };
 }
 
-// Paystack signs webhooks with HMAC-SHA512 of the raw body using the secret key.
+/** Verify incoming Paystack webhook HMAC-SHA512 signature in timing-safe comparison. */
 export function verifyWebhookSignature(rawBody: string, signature: string | null): boolean {
   if (!secret() || !signature) return false;
   const expected = crypto.createHmac("sha512", secret()).update(rawBody).digest("hex");
@@ -58,3 +60,4 @@ export function verifyWebhookSignature(rawBody: string, signature: string | null
   const b = Buffer.from(signature, "utf8");
   return a.length === b.length && crypto.timingSafeEqual(a, b);
 }
+

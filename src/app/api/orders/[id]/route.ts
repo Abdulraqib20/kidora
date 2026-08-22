@@ -9,6 +9,7 @@ import { orderStatusSchema } from "@/lib/validation";
 
 type Ctx = { params: Promise<{ id: string }> };
 
+/** Fetch full order details including line items and customer info (admin only). */
 export async function GET(_req: Request, { params }: Ctx) {
   if (!(await getAdminSession())) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -19,7 +20,9 @@ export async function GET(_req: Request, { params }: Ctx) {
   return NextResponse.json(detail);
 }
 
+/** Transition order status between pending, paid, shipped, or cancelled (admin only). */
 export async function PATCH(req: Request, { params }: Ctx) {
+
   if (!(await getAdminSession())) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }

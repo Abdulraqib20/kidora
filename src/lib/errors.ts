@@ -1,4 +1,4 @@
-// Postgres unique-constraint violation (e.g. duplicate serial_no).
+/** Check if a database error is a Postgres unique constraint violation (code 23505). */
 export function isUniqueViolation(e: unknown): boolean {
   return (
     typeof e === "object" &&
@@ -7,3 +7,4 @@ export function isUniqueViolation(e: unknown): boolean {
     (e as { code: string }).code === "23505"
   );
 }
+
