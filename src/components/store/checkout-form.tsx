@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
-import { Loader2 } from "lucide-react";
+import { Loader2, ShieldCheck } from "lucide-react";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -91,13 +91,55 @@ export function CheckoutForm() {
     <div className="grid gap-8 lg:grid-cols-[1fr_320px]">
       <form onSubmit={submit} className="space-y-4">
         <h1 className="text-xl font-bold">Checkout</h1>
-        <p className="text-sm text-muted-foreground">
-          Paying as a guest is fine —{" "}
-          <Link href="/account" className="underline">
-            sign in
-          </Link>{" "}
-          to keep order history.
-        </p>
+        {session?.user ? (
+          <div
+            className={cn(
+              "rounded-xl border p-3 text-xs leading-relaxed",
+              session.user.role === "admin"
+                ? "border-purple-500/30 bg-purple-500/10 text-purple-950 dark:text-purple-200"
+                : "border-border bg-muted/40 text-muted-foreground",
+            )}
+          >
+            <div className="flex items-center gap-1.5 font-semibold text-foreground">
+              {session.user.role === "admin" && (
+                <ShieldCheck className="size-4 text-purple-600 dark:text-purple-400" />
+              )}
+              <span>
+                {session.user.role === "admin"
+                  ? "Store Administrator Account"
+                  : "Signed In Customer"}
+              </span>
+            </div>
+            <p className="pt-0.5">
+              Signed in as{" "}
+              <span className="font-medium text-foreground">{session.user.email}</span>. Completed
+              orders will appear in your{" "}
+              <Link href="/account" className="underline font-medium hover:text-primary">
+                Order History
+              </Link>
+              .
+              {session.user.role === "admin" && (
+                <span className="mt-1 block opacity-85">
+                  Looking for customer orders to fulfill?{" "}
+                  <Link
+                    href="/admin/orders"
+                    className="font-semibold underline hover:text-primary"
+                  >
+                    Go to Admin Orders Manager →
+                  </Link>
+                </span>
+              )}
+            </p>
+          </div>
+        ) : (
+          <p className="text-sm text-muted-foreground">
+            Paying as a guest is fine —{" "}
+            <Link href="/account" className="underline hover:text-primary">
+              sign in
+            </Link>{" "}
+            to keep order history.
+          </p>
+        )}
 
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="space-y-1.5">

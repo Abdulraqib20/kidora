@@ -302,7 +302,7 @@ export async function listOrdersForEmail(email: string): Promise<OrderSummary[]>
     .from(orders)
     .innerJoin(customers, eq(customers.id, orders.customerId))
     .leftJoin(orderItems, eq(orderItems.orderId, orders.id))
-    .where(eq(customers.email, email))
+    .where(ilike(customers.email, email.trim()))
     .groupBy(orders.id, customers.name, customers.email)
     .orderBy(desc(orders.createdAt));
 }
