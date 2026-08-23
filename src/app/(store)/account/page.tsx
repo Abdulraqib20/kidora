@@ -28,9 +28,79 @@ export default async function AccountPage() {
 
   if (!session?.user) {
     return (
-      <div className="mx-auto max-w-md">
-        <h1 className="pb-4 text-center text-xl font-bold">Your account</h1>
-        <AuthForms />
+      <div className="mx-auto max-w-5xl py-4 lg:py-8">
+        <div className="grid items-center gap-8 lg:grid-cols-[1.1fr_420px] lg:gap-12">
+          {/* Left value proposition */}
+          <div className="space-y-6">
+            <div className="space-y-2">
+              <div className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
+                <span>Kidora Account</span>
+              </div>
+              <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
+                Welcome to Kidora<span className="text-primary">.</span>
+              </h1>
+              <p className="text-base text-muted-foreground">
+                Sign in to track deliveries in real time, view your order history, or access the store administration dashboard.
+              </p>
+            </div>
+
+            <div className="space-y-4 pt-2">
+              <div className="flex items-start gap-3">
+                <div className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-purple-500/10 text-purple-600 dark:text-purple-400">
+                  <Package className="size-4.5" />
+                </div>
+                <div>
+                  <p className="text-sm font-semibold">Live Order Tracking</p>
+                  <p className="text-xs text-muted-foreground">
+                    Monitor fulfillment progress from payment verification to doorstep delivery.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <div className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400">
+                  <ShoppingBag className="size-4.5" />
+                </div>
+                <div>
+                  <p className="text-sm font-semibold">Instant Express Checkout</p>
+                  <p className="text-xs text-muted-foreground">
+                    Pre-fills delivery information and connects your cart seamlessly.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <div className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
+                  <ShieldCheck className="size-4.5" />
+                </div>
+                <div>
+                  <p className="text-sm font-semibold">Store Management & Administration</p>
+                  <p className="text-xs text-muted-foreground">
+                    Authorized store staff can sign in to manage inventory, catalog prices, and customer orders.
+                  </p>
+                </div>
+              </div>
+            </div>
+{/* 
+            <div className="rounded-xl border bg-card/60 p-4 text-xs text-muted-foreground backdrop-blur-xs">
+              <p className="font-medium text-foreground">💡 Tip for demo testing:</p>
+              <p className="pt-0.5">
+                Use the one-click demo button in the form to sign in immediately as Store Administrator (<code className="rounded bg-muted px-1 py-0.5 text-[11px]">admin@kidora.store</code>).
+              </p>
+            </div> */}
+          </div>
+
+          {/* Right form card */}
+          <div className="rounded-2xl border bg-card p-6 shadow-xl shadow-black/5 ring-1 ring-border/50 dark:shadow-black/20">
+            <div className="pb-4 text-center">
+              <h2 className="text-lg font-bold">Access your account</h2>
+              <p className="text-xs text-muted-foreground">
+                Enter your credentials or register a new account below
+              </p>
+            </div>
+            <AuthForms />
+          </div>
+        </div>
       </div>
     );
   }

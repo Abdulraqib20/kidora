@@ -567,7 +567,7 @@ async function main() {
   /* ── Admin account ── */
   console.log("Creating admin account…");
   const adminEmail = process.env.ADMIN_EMAIL || "admin@kidora.store";
-  const adminPassword = process.env.ADMIN_PASSWORD || "Admin123!";
+  const adminPassword = process.env.ADMIN_PASSWORD || "kidora2026";
   const { user } = await auth.api.signUpEmail({
     body: { name: "Store Admin", email: adminEmail, password: adminPassword },
   });

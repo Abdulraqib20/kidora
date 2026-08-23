@@ -16,7 +16,6 @@ import {
   DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuItem,
-  DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
@@ -77,7 +76,7 @@ export function UserNav() {
       </DropdownMenuTrigger>
 
       <DropdownMenuContent align="end" sideOffset={8} className="w-56 p-1.5">
-        <DropdownMenuLabel className="font-normal">
+        <div className="px-2 py-1.5 font-normal">
           <div className="flex flex-col space-y-1">
             <div className="flex items-center gap-1.5">
               <p className="text-sm font-semibold leading-none">{session.user.name}</p>
@@ -92,15 +91,15 @@ export function UserNav() {
               {session.user.email}
             </p>
           </div>
-        </DropdownMenuLabel>
+        </div>
         <DropdownMenuSeparator />
 
         {isAdmin ? (
           <>
             <DropdownMenuGroup>
-              <DropdownMenuLabel className="text-[10px] font-semibold tracking-wider text-muted-foreground uppercase">
+              <div className="px-2 py-1 text-[10px] font-semibold tracking-wider text-muted-foreground uppercase">
                 Store Management
-              </DropdownMenuLabel>
+              </div>
               <DropdownMenuItem
                 onClick={() => router.push("/admin")}
                 className="flex cursor-pointer items-center gap-2 font-medium"
